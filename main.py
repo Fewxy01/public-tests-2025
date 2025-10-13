@@ -8,9 +8,11 @@ from typing import Dict, Tuple, Optional, Set
 
 import testsuites.suite as suite
 import testsuites.sum as suite_sum
+import testsuites.math as suite_math
 
 SELECTOR: Dict[str, Tuple[suite.Tester, Optional[Dict[str, float]]]] = {
 	suite_sum.SUITE_NAME: suite_sum.get_instance(),
+	suite_math.SUITE_NAME: suite_math.get_instance(),
 }
 
 def __calculate_final_sum(results: suite.Suite, coefficients: Optional[Dict[str, float]]) -> float:
