@@ -261,6 +261,16 @@ def __get_negative_tests(category_name: str) -> List[Tuple[str, List[str], int, 
 		1, [category_name]
 	)
 	tests.append(test_data)
+
+	for i in range(2):
+		test_input_filename = os.path.join(__INPUT_DIR, f"oom_{i + 1}.txt")
+		test_output_filename = os.path.join(__OUTPUT_DIR, f"should_not_be_existing_{i + 1}.txt")
+		test_data = (
+			f"NEG #{3 + 1 + i} out-of-memory, trying to allocate 512 Gb. (see: {os.path.relpath(test_input_filename)})",
+			[test_input_filename, test_output_filename],
+			1, [category_name]
+		)
+		tests.append(test_data)
 	return tests
 
 
